@@ -18,6 +18,10 @@
 		<input type="button" id="zoom-in" value="+"/>
 		<button id="zoom-out">-</button>
 	</div>
+	<div id="positions">
+		<button id="current-position" onclick="showCurrentPosition()">Current Position</button>
+		<button id="cafe-sodermalm" onclick="showCafePositions()">Café's at Södermalm</button>
+	</div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script>
       if('serviceWorker' in navigator) {
