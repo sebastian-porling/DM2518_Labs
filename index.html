@@ -10,7 +10,14 @@
     <script type="text/javascript" src="map.js"></script>
   </head>
   <body>
-    <div id="map"></div>
+	<div id="map"></div>
+	<div id="functions">
+		<button id="tilt" onclick="tiltMap()">Tilt</button>
+	</div>
+	<div id="navigation">
+		<input type="button" id="zoom-in" value="+"/>
+		<button id="zoom-out">-</button>
+	</div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script>
       if('serviceWorker' in navigator) {
