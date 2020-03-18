@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Map App</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,24 +13,38 @@
   </head>
   <body>
 	<div id="map" class="scrolldiv"></div>
-	<div id="functions" class="scrolldiv">
-		<button id="tilt" onclick="tiltMap()">Tilt</button>
-	</div>
 	<div id="navigation" class="scrolldiv">
+    <div id="background">
+      <span>Background:</span>
+      <select class="button" id="bg" onchange="onChangeSelect()">
+        <option value="roadmap">roadmap</option>
+        <option value="satellite">satellite</option>
+        <option value="hybrid">hybrid</option>
+        <option value="terrain">terrain</option>
+      </select>
+    </div>
     <div id="zoom">
-      <span>zoom:</span>
-      <button id="zoom-in" onclick="zoomin()">+</button>
-      <button id="zoom-out" onclick="zoomout()">-</button>
+      <span>Zoom:</span>
+      <button class="button" id="zoom-in" onclick="zoomin()">+</button>
+      <button class="button" id="zoom-out" onclick="zoomout()">-</button>
     </div>
     <div id="pan">
-      <span>pan:</span>
+      <span>Pan:</span>
       <span>
-        <button id="left" onclick="left()">left</button>
-        <button id="right" onclick="right()">right</button>
-        <button id="up" onclick="up()">up</button>
-        <button id="down" onclick="down()">down</button>
+        <div class="up"><button class="button" onclick="up()">up</button></div>
+        <div class="left-right">
+          <button class="button left" onclick="left()">left</button>
+          <button class="button right" onclick="right()">right</button>
+        </div>
+        <div class="down"><button class="button" onclick="down()">down</button></div>
       </span>
     </div>
+	</div>
+	<div id="positions">
+    <span>Others:</span>
+		<div style="margin-bottom: 10px;"><button class="button" id="current-position" onclick="showCurrentPosition()">Current Position</button></div>
+    <div style="margin-bottom: 10px;"><button class="button" id="cafe-sodermalm" onclick="showCafePositions()">Café's at Södermalm</button></div> 
+    <div style="margin-bottom: 10px;"><button class="button" id="tilt" onclick="tiltMap()">Tilt</button></div>
 	</div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script>
