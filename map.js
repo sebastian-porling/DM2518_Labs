@@ -12,6 +12,7 @@ function initMap() {
 	mapTypeId: 'satellite',
 	disableDefaultUI: true
   });
+
 }
 
 function tiltMap(){
@@ -114,3 +115,30 @@ function showCafePositions(){
 	map.setZoom(13);
 	addMarkersAndInfo([cafeSoderEspressoContent, cafeTartanContent, cafeGiffiContent, cafeGrandenContent, cafeStringContent], [cafeSoderEspresso, cafeTartan, cafeGiffi, cafeGranden, cafeString]);
 }
+
+function zoomin(){
+	zoom = map.getZoom();
+	map.setZoom(zoom+1)
+}
+
+function zoomout(){
+	zoom = map.getZoom();
+	map.setZoom(zoom-1)
+}
+
+function left(){
+	map.panBy(-100,0)
+}
+
+function right(){
+	map.panBy(100,0)
+}
+
+function up(){
+	map.panBy(0,-100)
+}
+
+function down(){
+	map.panBy(0,+100)
+}
+
