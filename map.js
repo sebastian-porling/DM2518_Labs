@@ -17,6 +17,7 @@ function initMap() {
 
 function tiltMap(){
 	  map.setCenter(kungligaOperan)
+	  map.setZoom(18);
 	  map.setTilt(45);
 }
 
