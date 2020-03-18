@@ -1,5 +1,4 @@
-var move_unit=0.000001
-var move_unit=config.move_unit
+
 var map;
 
 function initMap() {

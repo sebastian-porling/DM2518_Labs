@@ -9,3 +9,13 @@
 	margin: 0;
 	padding: 0;
   }
+
+  .scrolldiv {
+    -webkit-overflow-scrolling: touch;
+    }
+  #zoom{
+    padding:10px;
+  }
+  #pan {
+    padding:10px;
+  }

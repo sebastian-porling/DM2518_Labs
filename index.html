@@ -5,23 +5,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="all">
     <link rel="manifest" href="manifest.json">
     <script type="text/javascript" src="map.js"></script>
     <script type="text/javascript" src="settings.js"></script>
   </head>
   <body>
-	<div id="map"></div>
-	<div id="functions">
+	<div id="map" class="scrolldiv"></div>
+	<div id="functions" class="scrolldiv">
 		<button id="tilt" onclick="tiltMap()">Tilt</button>
 	</div>
-	<div id="navigation">
-    <button id="zoom-in" onclick="zoomin()">+</button>
-    <button id="zoom-out" onclick="zoomout()">-</button>
-    <button id="left" onclick="left()">left</button>
-    <button id="right" onclick="right()">right</button>
-    <button id="up" onclick="up()">up</button>
-    <button id="down" onclick="down()">down</button>
+	<div id="navigation" class="scrolldiv">
+    <div id="zoom">
+      <span>zoom:</span>
+      <button id="zoom-in" onclick="zoomin()">+</button>
+      <button id="zoom-out" onclick="zoomout()">-</button>
+    </div>
+    <div id="pan">
+      <span>pan:</span>
+      <span>
+        <button id="left" onclick="left()">left</button>
+        <button id="right" onclick="right()">right</button>
+        <button id="up" onclick="up()">up</button>
+        <button id="down" onclick="down()">down</button>
+      </span>
+    </div>
 	</div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script>
