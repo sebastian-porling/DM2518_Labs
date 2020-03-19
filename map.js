@@ -1,3 +1,4 @@
+
 var map, currentPositionMarker
 var kth = {lat: 59.3498092, lng: 18.0684758};
 var sodermalm = {lat: 59.314112, lng: 18.066331};
@@ -9,14 +10,16 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: kth,
 	zoom: 16,
-	mapTypeId: 'satellite',
-	disableDefaultUI: true
+	mapTypeId: 'roadmap',
+	disableDefaultUI: true,
+	gestureHandling:'greedy'
   });
 
 }
 
 function tiltMap(){
 	  map.setCenter(kungligaOperan)
+	  map.setMapTypeId(bg.value)
 	  map.setZoom(18);
 	  map.setTilt(45);
 }
@@ -117,6 +120,11 @@ function showCafePositions(){
 	addMarkersAndInfo([cafeSoderEspressoContent, cafeTartanContent, cafeGiffiContent, cafeGrandenContent, cafeStringContent], [cafeSoderEspresso, cafeTartan, cafeGiffi, cafeGranden, cafeString]);
 }
 
+function changebg(){
+	
+	map.setmapTypeId(type);
+}
+
 function zoomin(){
 	zoom = map.getZoom();
 	map.setZoom(zoom+1)
@@ -143,3 +151,7 @@ function down(){
 	map.panBy(0,+100)
 }
 
+function onChangeSelect(){
+	var bg = document.getElementById("bg")
+	map.setMapTypeId(bg.value)
+}
