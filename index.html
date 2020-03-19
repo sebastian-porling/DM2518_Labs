@@ -4,48 +4,62 @@
     <title>Map App</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#000">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" media="all">
     <link rel="manifest" href="manifest.json">
     <script type="text/javascript" src="map.js"></script>
-    <script type="text/javascript" src="settings.js"></script>
+	<script type="text/javascript" src="settings.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   </head>
   <body>
-	<div id="map" class="scrolldiv"></div>
+	<div id="map"></div>
 	<div id="navigation" class="scrolldiv">
-    <div id="background">
-      <span>Background:</span>
-      <select class="button" id="bg" onchange="onChangeSelect()">
+    <div id="background" style="width: 33%; float: left;">
+      <select class="select-input select-input--material" id="bg" onchange="onChangeSelect()" onblur="onChangeSelect()">
         <option value="roadmap">roadmap</option>
         <option value="satellite">satellite</option>
         <option value="hybrid">hybrid</option>
         <option value="terrain">terrain</option>
       </select>
-    </div>
-    <div id="zoom">
-      <span>Zoom:</span>
-      <button class="button" id="zoom-in" onclick="zoomin()">+</button>
-      <button class="button" id="zoom-out" onclick="zoomout()">-</button>
-    </div>
+	</div>
+	
+	<div id="zoom" style="width: 33%; float: right;">
+      <button class="fab fab--mini" id="zoom-in" onclick="zoomin()"><i class="zmdi zmdi-plus"></i></button>
+      <button class="fab fab--mini" id="zoom-out" onclick="zoomout()"><i class="zmdi zmdi-minus"></i></button>
+	</div>
+	
     <div id="pan">
-      <span>Pan:</span>
-      <span>
-        <div class="up"><button class="button" onclick="up()">up</button></div>
-        <div class="left-right">
-          <button class="button left" onclick="left()">left</button>
-          <button class="button right" onclick="right()">right</button>
-        </div>
-        <div class="down"><button class="button" onclick="down()">down</button></div>
-      </span>
-    </div>
-	</div>
-	<div id="positions">
-    <span>Others:</span>
-		<div style="margin-bottom: 10px;"><button class="button" id="current-position" onclick="showCurrentPosition()">Current Position</button></div>
-    <div style="margin-bottom: 10px;"><button class="button" id="cafe-sodermalm" onclick="showCafePositions()">Café's at Södermalm</button></div> 
-    <div style="margin-bottom: 10px;"><button class="button" id="tilt" onclick="tiltMap()">Tilt</button></div>
-	</div>
+		<div class="grid-container">
+		<div class="grid-item"></div>
+		<div class="grid-item"><button class="fab fab--mini" onclick="up()"><i class="zmdi zmdi-chevron-up"></i></button></div>
+		<div class="grid-item"></div>
+		<div class="grid-item"><button style="float: left;" class="fab fab--mini" onclick="left()"><i class="zmdi zmdi-chevron-left"></i></button></div>
+		<div class="grid-item"></div>
+		<div class="grid-item"><button style="float: left;" class="fab fab--mini" onclick="right()"><i class="zmdi zmdi-chevron-right"></i></button></div>
+		<div class="grid-item"></div>
+		<div class="grid-item"><button class="fab fab--mini" onclick="down()"><i class="zmdi zmdi-chevron-down"></i></button></div>
+		<div class="grid-item"></div>
+	  </div>
+  </div>
+</div>
+	  <div id="positions">
+			<div class="segment segment--material" style="width:95%; position: fixed; top: 10px; margin: 0 auto;">
+			  <div class="segment__item segment--material__item">
+				<input type="radio" class="segment__input segment--material__input" name="segment-b" onclick="showCurrentPosition()">
+				<div class="segment__button segment--material__button">Current Position</div>
+			  </div>
+			  <div class="segment__item segment--material__item">
+				<input type="radio" class="segment__input segment--material__input" name="segment-b" onclick="showCafePositions()">
+				<div class="segment__button segment--material__button">Café's at Södermalm</div>
+			  </div>
+			  <div class="segment__item segment--material__item">
+				<input type="radio" class="segment__input segment--material__input" name="segment-b" onclick="tiltMap()">
+				<div class="segment__button segment--material__button" >Tilt</div>
+			  </div>
+	  		</div>
+	  </div>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <script>
       if('serviceWorker' in navigator) {
